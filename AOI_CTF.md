@@ -92,12 +92,13 @@ The result of a *successful* upload is a new error page.
 But typing in the path to your webshell file will load the previously non-existant page. WELL DONE!!
 Your webshell works!
 
-##Let's get that FLAG!!! 
+## Let's get that FLAG!!! 
 Running the ls command, we see a few files in the web directory.
 
 **(Mini challenge can you find the flag! go for it!).**
 
 After printing out the lisitng of the files, we almost ignore the "Dockerfile" file, however this is where the clue lies.
+
 ![Dockerfile](Dockerfile.png)
 
 Printing out that file reveals the location of our flag:
