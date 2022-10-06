@@ -5,9 +5,11 @@ I encourage you to first try it out, the URL is https://goldfish-tj6gf.ondigital
 
 ## The Eagle has landed
 The landing page greets you with a few UI components, a file upload selector, a dropdown to select a size value between 1 and 4, a "send" button to upload the file and a link at the bottom labelled "Check DB".
+
 ![Landing page](Landing_page.png)
 
 Uploading an image does not display your selected image, but it does open *an* image. 
+
 ![Upload page](upload_image.png)
 
 Take note of the URI in the address bar - it is very important as it includes a clue as to the underlying code used to manipulate the images, the URI is "image.php?module=**Imagick**&params=NULL&size=1". A Google search for **Imagick** produces quite a few results, and we are on the track to discover our solution. 
