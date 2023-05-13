@@ -1,7 +1,6 @@
 # PHP & Arbitrary Object Instantiation
 The September 2022 CTF released by @leonjza from Orange Cyberdefense was challenging, informative and a lot of fun. The challenge context was PHP and Code Execution via Arbitrary Object Instantiation, but I wont give away the ending quite yet.
 
-I encourage you to first try it out, the URL is https://goldfish-tj6gf.ondigitalocean.app/index.html.
 
 ## The Eagle has landed
 The landing page greets you with a few UI components, a file upload selector, a dropdown to select a size value between 1 and 4, a "send" button to upload the file and a link at the bottom labelled "Check DB".
