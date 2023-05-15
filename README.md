@@ -94,8 +94,6 @@ Your webshell works!
 ## Let's get that FLAG!!! 
 Running the ls command, we see a few files in the web directory.
 
-**(Mini challenge can you find the flag! go for it!).**
-
 After printing out the lisitng of the files, we almost ignore the "Dockerfile" file, however this is where the clue lies.
 
 ![Dockerfile](Dockerfile.png)
